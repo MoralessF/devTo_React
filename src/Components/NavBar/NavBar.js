@@ -1,6 +1,7 @@
 import React from 'react';
 import './NavBar.scss';
 import { Link } from 'react-router-dom';
+import { BsSearch } from 'react-icons/bs';
 
 import logo from '../../img/logo192.png';
 
@@ -23,7 +24,7 @@ const NavBar = () => {
                 aria-describedby="basic-addon2"
               ></input>
               <span className="input-group-text" id="basic-addon2">
-                o-
+                <BsSearch />
               </span>
             </div>
           </div>
