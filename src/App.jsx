@@ -1,8 +1,8 @@
+import React from 'react';
 import { Button } from 'react-bootstrap';
 import logo from './logo.svg';
 import './App.css';
 import './App.styles.scss';
-import Login from './Components/Login/Login';
 
 function App() {
   return (
