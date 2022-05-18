@@ -1,18 +1,10 @@
 import React from 'react';
-// import Login from './Components/Login/Login';
-import SignUp from './Components/SignUp';
-// import NewPost from './Components/NewPost';
 import './App.css';
 import './App.styles.scss';
+import Main from './Components/Main';
 
-// <Login />
-//    <NewPost />
 function App() {
-  return (
-    <div className="App">
-      <SignUp />
-    </div>
-  );
+  return <Main />;
 }
 
 export default App;
