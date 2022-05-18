@@ -13,6 +13,7 @@ import Main from './Components/Main';
 import Login  from './Components/Login';
 import SignUp  from './Components/SignUp';
 import NavBar from './Components/NavBar';
+import BigPosts from './Components/BigPosts';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/BigPosts/:id" element={<BigPosts />} />
       </Routes>
     </>
   );

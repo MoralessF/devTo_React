@@ -1,8 +1,13 @@
-import  React,{ useEffect, useState} from "react";
-import { Link } from 'react-router-dom';
-import './Posts.scss';
+import React, { useState, useEffect } from 'react';
 
-const Posts = () => {
+
+
+import './BigPosts.scss';
+
+
+
+
+const BigPosts = () => {
   
   const [isLoading, setIsLoading] = useState(true);
   const [posts, setPosts] = useState([]);
@@ -15,6 +20,15 @@ const Posts = () => {
               setIsLoading(false);    
       });
   }, []);
+
+ /* const { id } = useParams();
+  const [character, setCharacter] = useState({});
+  useEffect(() => {
+    fetch(URL + id)
+      .then((res) => res.json())
+      .then((body) => setCharacter(body));
+  }, []); */
+
 
   console.log(posts);
   
@@ -37,9 +51,9 @@ const Posts = () => {
 
 <div  className="card mb-2" key={post._id}>
     
-<Link className="test"  to={'/BigPosts/'+post._id}>
+   
     <img  className="card-img-top" src = {post.image} width="32px" height="200px"></img>
-     </Link>
+     
    <div className="d-flex">
       
         <img src={post.user.image} width="32em"
@@ -81,4 +95,4 @@ const Posts = () => {
 };
 
 
-export default Posts;
+export default BigPosts;
