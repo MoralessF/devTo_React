@@ -3,6 +3,27 @@ import NavBar from '../NavBar';
 import './SignUp.styles.scss';
 
 const SignUp = () => {
+  const [newUser, setNewUser] = React.useState({
+    firstName: null,
+    lastName: null,
+    email: null,
+    password: null,
+    avatar: null,
+    country: null,
+    day: null,
+    month: null,
+    year: null,
+    description: null,
+  });
+
+  const handleSignup = (e) => {
+    try {
+      e.preventDefault();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="body d-flex flex-column">
       <NavBar />
@@ -23,7 +44,7 @@ const SignUp = () => {
             <div>
               <div>
                 <h3>User</h3>
-                <form>
+                <form onSubmit={handleSignup}>
                   <div className="mb-3">
                     <label className="form-label mt-3 mb-0">First name</label>
                     <input

@@ -8,8 +8,6 @@ import {
   AiOutlineUnorderedList,
 } from 'react-icons/ai';
 
-import { Link } from 'react-router-dom';
-
 const iconList = [
   <FaBold key="Bold" />,
   <FaItalic key="Italic" />,
@@ -19,7 +17,7 @@ const iconList = [
   <AiOutlineUnorderedList key="unorderedList" />,
 ];
 
-const SignUp = (e) => {
+const SignUp = () => {
   const [newPost, setNewPost] = React.useState({
     image: null,
     title: null,
@@ -42,55 +40,44 @@ const SignUp = (e) => {
         content,
       });
 
+      console.log(newPost);
+
       createPost(
         newPost.image,
         newPost.title,
-        newPost.image,
         newPost.tags,
         newPost.content,
         (body) => {
           alert('POST SAVED SUCCESSFULLY');
           console.log(body);
-          <Link to="/" />;
         }
       );
-      <Link to="/" />;
     } catch (error) {
       console.log(error);
     }
   };
 
-  const createPost = (image, title, avatar, tags, contentText, funcion) => {
+  const createPost = (image, title, tags, contentText, funcion) => {
     const url = `http://localhost:8080/api/v1/posts/`;
 
     let today = new Date();
-    let time = new Date();
+    const time = new Date();
     const yyyy = today.getFullYear();
     let mm = today.getMonth() + 1; // Months start at 0!
     let dd = today.getDate();
     if (dd < 10) dd = '0' + dd;
     if (mm < 10) mm = '0' + mm;
     today = dd + '/' + mm + '/' + yyyy;
-    //const tiempoActual = today;
-    let datetime = new Date();
+    const datetime = new Date();
     const day = dd;
     const month = mm;
     const year = yyyy;
 
-    let ID = '';
-    let postID = `${time.getTime()}${time.getMilliseconds()}`;
-    let updated = false;
-    let counterReactions = 0;
-    let counterComents = 0;
-    let nameP = 'Ada Lovelace';
-
-    //"user": {"_id": "626733df2f550c017fc2349d"}
-
-    avatar =
-      'https://api.binary-coffee.dev/uploads/Ada_Lovelace_Chalon_portrait_4d642eaf6a.jpeg';
+    const postID = `${time.getTime()}${time.getMilliseconds()}`;
+    const counterReactions = 0;
+    const counterComents = 0;
 
     const post = {
-      ID,
       postID,
       datetime,
       day,
@@ -100,18 +87,18 @@ const SignUp = (e) => {
       counterComents,
       image,
       title,
-      avatar,
       tags,
       contentText,
-      nameP,
-      updated,
     };
+
+    const token = localStorage.getItem('userToken');
 
     fetch(url, {
       method: 'POST',
       body: JSON.stringify(post),
       headers: {
         'Content-Type': 'application/json',
+        token: `${token}`,
       },
     })
       .then((respuesta) => respuesta.json())
