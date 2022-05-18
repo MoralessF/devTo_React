@@ -26,11 +26,11 @@ const loginInput = [
 
 const Login = () => {
   return (
-    <div className="body">
-      <main className="container">
-        <div className="container bg-white mt-2 m-md-4 p-md-4">
+    <div className="body d-flex alig-items-center justify-content-center">
+      <main className="d-flex alig-items-center justify-content-center">
+        <div className="whiteContainer container bg-white mt-2 m-md-4 p-3 p-md-4 d-flex flex-column justify-content-center">
           <div className="d-flex flex-column">
-            <h1 className="text-center loginTitle">Welcome to DEV Community</h1>
+            <h2 className="text-center loginTitle">Welcome to DEV Community</h2>
             <p className="text-center">
               <a className="loginAnchors" href="">
                 DEV Community
@@ -54,7 +54,7 @@ const Login = () => {
             </div>
             <div>
               <div className="text-center mt-2 mb-1">
-                <span className="">
+                <span className="infoText">
                   Have a password? Continue with your email address
                 </span>
               </div>
@@ -62,34 +62,23 @@ const Login = () => {
                 <div className="mb-3">
                   {loginInput.map((group) => {
                     return (
-                      <>
-                        <label className="form-label mt-2">
+                      <div key={`div_${group.textLabel}`}>
+                        <label
+                          key={`label_${group.textLabel}`}
+                          className="form-label mt-2 labelInput"
+                        >
                           {group.textLabel}
                         </label>
                         <input
+                          key={`input_${group.nameInput}`}
                           className="form-control mb-3"
                           id={group.idInput}
                           type={group.typeInput}
                           name={group.nameInput}
                         ></input>
-                      </>
+                      </div>
                     );
                   })}
-                  {/* <label className="form-label">Email</label>
-                <input
-                  id="emailInput"
-                  type="email"
-                  name="email"
-                  className="form-control"
-                />
-
-                <label className="form-label">Password</label>
-                <input
-                  id="passwordInput"
-                  type="password"
-                  name="password"
-                  className="form-control"
-                /> */}
                 </div>
 
                 <div className="mb-3">
@@ -103,7 +92,7 @@ const Login = () => {
                   Continue
                 </button>
 
-                <p className="text-center m-4">
+                <p className="text-center mb-0 p-0 mt-3">
                   <a className="loginAnchors supportAnchor" href="">
                     I forgot my password
                   </a>

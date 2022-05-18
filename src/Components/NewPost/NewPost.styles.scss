@@ -1,0 +1,35 @@
+.body {
+  background-color: rgb(245, 245, 245);
+  height: 100%;
+  width: 100vw;
+}
+.iconsContainer {
+  background-color: rgb(249, 249, 249);
+}
+
+.bottomBUtton:hover,
+.btnIcon:hover {
+  background-color: rgb(226, 227, 243);
+}
+
+.btnIcon {
+  background: transparent;
+  list-style-type: none;
+  border-radius: 5px;
+}
+
+.inputCoverImg {
+  border: 2px solid rgb(222, 222, 222);
+}
+
+.inputPostTitle:focus {
+  outline: none;
+}
+
+.inputPostTitle {
+  border: none;
+}
+
+.inputPostTitle::placeholder {
+  font-weight: 900;
+}

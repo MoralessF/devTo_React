@@ -1,7 +1,12 @@
 .body {
   background-color: rgb(245, 245, 245);
-  height: 100vh;
+  height: 100%;
   width: 100vw;
+}
+
+.whiteContainer {
+  border-radius: 10px;
+  border: 1px solid rgb(222, 222, 222);
 }
 
 .loginTitle {
@@ -35,5 +40,13 @@
   text-decoration: none;
 }
 .supportAnchor {
+  font-size: small;
+}
+
+.labelInput {
+  font-weight: 500;
+}
+
+.infoText {
   font-size: small;
 }
