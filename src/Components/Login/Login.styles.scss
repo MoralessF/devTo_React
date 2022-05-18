@@ -1,0 +1,52 @@
+.body {
+  background-color: rgb(245, 245, 245);
+  height: 100%;
+  width: 100vw;
+}
+
+.whiteContainer {
+  border-radius: 10px;
+  border: 1px solid rgb(222, 222, 222);
+}
+
+.loginTitle {
+  font-weight: bold;
+}
+
+.buttonIcon {
+  margin-right: 8px;
+}
+
+.loginButton {
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-weight: 500;
+}
+.Apple {
+  background: rgb(27, 27, 27);
+}
+.Forem {
+  background: rgb(5, 49, 59);
+}
+.GitHub {
+  background: rgb(0, 0, 0);
+}
+.Twitter {
+  background: rgb(0, 150, 242);
+}
+
+.loginAnchors {
+  text-decoration: none;
+}
+.supportAnchor {
+  font-size: small;
+}
+
+.labelInput {
+  font-weight: 500;
+}
+
+.infoText {
+  font-size: small;
+}

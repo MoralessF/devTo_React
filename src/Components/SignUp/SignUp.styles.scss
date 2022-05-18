@@ -1,0 +1,16 @@
+.body {
+  background-color: rgb(245, 245, 245);
+  height: 100%;
+  width: 100vw;
+}
+
+.containerRegister {
+  border: 1px solid rgb(222, 222, 222);
+}
+.inputDate {
+  width: 5rem;
+}
+
+.inputDate::placeholder {
+  text-align: center;
+}
