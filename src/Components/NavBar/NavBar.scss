@@ -1,0 +1,23 @@
+.NavBar-Content{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+
+.NavLeft{
+    display: flex;
+    gap: 10px
+}
+
+.NavBar{
+    padding-top: 5px;
+    border-bottom: 1px solid lightgray;
+}
+
+.NavBut{
+    display: flex;
+    gap: 10px;
+    height: 40px;
+    margin-right: 20px;
+}
+
