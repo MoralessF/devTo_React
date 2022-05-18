@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Posts.scss';
 
 const openPost = (ID) => {
-  window.location.assign(`./bigpost.html?ID=${ID}`);
+  console.log(ID);
 };
 
 const Posts = () => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import './NavBar.scss';
+import { Link } from 'react-router-dom';
 
 import logo from '../../img/logo192.png';
 
@@ -9,7 +10,10 @@ const NavBar = () => {
       <div className="NavBar-Container">
         <div className="NavBar-Content">
           <div className="NavLeft">
-            <img width="40px" height="40px" src={logo} alt={'logo'}></img>
+            <Link className="test" to={`/`}>
+              <img width="40px" height="40px" src={logo} alt={'logo'}></img>
+            </Link>
+
             <div className="input-group mb-3">
               <input
                 type="text"
@@ -24,12 +28,16 @@ const NavBar = () => {
             </div>
           </div>
           <div className="NavBut">
-            <button type="button" className="btn btn-light">
-              Login
-            </button>
-            <button type="button" className="btn btn-outline-primary">
-              Create account
-            </button>
+            <Link className="test" to={`/Login`}>
+              <button type="button" className="btn btn-light">
+                Login
+              </button>
+            </Link>
+            <Link className="test" to={`/SignUp`}>
+              <button type="button" className="btn btn-outline-primary">
+                Create account
+              </button>
+            </Link>
           </div>
         </div>
       </div>
