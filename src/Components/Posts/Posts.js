@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Posts.scss';
-
-const openPost = (ID) => {
-  console.log(ID);
-};
 
 const Posts = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [posts, setPosts] = useState([]);
-
+  
   useEffect(() => {
     fetch('http://localhost:8080/api/v1/posts')
       .then((response) => response.json())
@@ -17,9 +14,7 @@ const Posts = () => {
         setIsLoading(false);
       });
   }, []);
-
-  console.log(posts);
-
+ 
   if (isLoading) {
     return (
       <div>
@@ -35,13 +30,11 @@ const Posts = () => {
               return (
                 <div className="card mb-2" key={post._id}>
                   <img
-                    onDoubleClick={openPost(post._id)}
                     className="card-img-top"
                     src={post.image}
                     width="32px"
                     height="200px"
                   ></img>
-
                   <div className="d-flex">
                     <img
                       src={post.user.image}
@@ -58,8 +51,9 @@ const Posts = () => {
                     </div>
                   </div>
                   <div className="card-body">
+                  <Link className="test"  to={'/BigPosts/'+post._id}>
                     <h4 className="card-title">{post.title}</h4>
-
+                    </Link>
                     <p className="card-text">
                       {post.contentText.substring(0, 50)}...
                     </p>
@@ -89,5 +83,9 @@ const Posts = () => {
     );
   }
 };
-
 export default Posts;
+
+
+
+
+
