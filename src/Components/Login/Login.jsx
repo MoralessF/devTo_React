@@ -78,8 +78,8 @@ const Login = () => {
 
   return (
     <div className="body d-flex flex-column">
-      <NavBar className="w-100" />
-      <div className="d-flex align-items-center justify-content-center">
+      <NavBar />
+      <div className="loginContainer d-flex align-items-center justify-content-center">
         <main className="d-flex align-items-center justify-content-center">
           <div className="whiteContainer container bg-white mt-2 m-md-4 p-3 p-md-4 d-flex flex-column justify-content-center">
             <div className="d-flex flex-column">

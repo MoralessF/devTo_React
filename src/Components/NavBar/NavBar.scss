@@ -1,29 +1,30 @@
-.NavBar-Content{
-    display: flex;
-    justify-content: space-between;
-    margin-left: 20px;
-    background-color: white;
+.NavBar-Content {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  background-color: white;
 }
 
-.NavLeft{
-    display: flex;
-    gap: 10px
+.NavLeft {
+  display: flex;
+  gap: 10px;
 }
 
-.NavBar{
-    padding-top: 5px;
-    border-bottom: 1px solid lightgray;
-    position: fixed;
-    top: 0;
-    z-index:1;
-    width: 100%;
-    background-color: white;
+.NavBar {
+  padding-top: 5px;
+  border-bottom: 1px solid lightgray;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: white;
 }
 
-.NavBut{
-    display: flex;
-    gap: 10px;
-    height: 40px;
-    margin-right: 20px;
+.NavBut {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 40px;
+  margin-right: 20px;
 }
-

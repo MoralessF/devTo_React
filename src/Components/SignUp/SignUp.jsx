@@ -6,20 +6,24 @@ const SignUp = () => {
   return (
     <div className="body d-flex flex-column">
       <NavBar />
-      <div className="d-flex align-items-center justify-content-center">
+      <div className="signupContainer d-flex align-items-center justify-content-center">
         <main className="d-flex align-items-center justify-content-center">
           <div className="containerRegister container bg-white mt-2 m-md-4 p-md-4">
             <div className="d-flex flex-column">
-              <h2 className="text-center">Welcome to DEV Community</h2>
+              <h2 className="text-center loginTitle">
+                Welcome to DEV Community
+              </h2>
               <p className="text-center">
-                <a href="">DEV Community</a> is a community of 851,532 amazing
-                developers
+                <a className="loginAnchors" href="">
+                  DEV Community
+                </a>{' '}
+                is a community of 851,532 amazing developers
               </p>
             </div>
             <div>
               <div>
                 <h3>User</h3>
-                <form onSubmit="signUp(event)">
+                <form>
                   <div className="mb-3">
                     <label className="form-label mt-3 mb-0">First name</label>
                     <input

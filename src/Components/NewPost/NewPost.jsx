@@ -8,6 +8,8 @@ import {
   AiOutlineUnorderedList,
 } from 'react-icons/ai';
 
+import { Link } from 'react-router-dom';
+
 const iconList = [
   <FaBold key="Bold" />,
   <FaItalic key="Italic" />,
@@ -17,7 +19,106 @@ const iconList = [
   <AiOutlineUnorderedList key="unorderedList" />,
 ];
 
-const SignUp = () => {
+const SignUp = (e) => {
+  const [newPost, setNewPost] = React.useState({
+    image: null,
+    title: null,
+    tags: null,
+    content: null,
+  });
+
+  const handleNewPost = (e) => {
+    try {
+      e.preventDefault();
+      const image = e.target[0].value.toString();
+      const title = e.target[1].value.toString();
+      const tags = e.target[2].value.toString();
+      const content = e.target.querySelectorAll('textarea')[0].value;
+
+      setNewPost({
+        image,
+        title,
+        tags,
+        content,
+      });
+
+      createPost(
+        newPost.image,
+        newPost.title,
+        newPost.image,
+        newPost.tags,
+        newPost.content,
+        (body) => {
+          alert('POST SAVED SUCCESSFULLY');
+          console.log(body);
+          <Link to="/" />;
+        }
+      );
+      <Link to="/" />;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const createPost = (image, title, avatar, tags, contentText, funcion) => {
+    const url = `http://localhost:8080/api/v1/posts/`;
+
+    let today = new Date();
+    let time = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1; // Months start at 0!
+    let dd = today.getDate();
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+    today = dd + '/' + mm + '/' + yyyy;
+    //const tiempoActual = today;
+    let datetime = new Date();
+    const day = dd;
+    const month = mm;
+    const year = yyyy;
+
+    let ID = '';
+    let postID = `${time.getTime()}${time.getMilliseconds()}`;
+    let updated = false;
+    let counterReactions = 0;
+    let counterComents = 0;
+    let nameP = 'Ada Lovelace';
+
+    //"user": {"_id": "626733df2f550c017fc2349d"}
+
+    avatar =
+      'https://api.binary-coffee.dev/uploads/Ada_Lovelace_Chalon_portrait_4d642eaf6a.jpeg';
+
+    const post = {
+      ID,
+      postID,
+      datetime,
+      day,
+      month,
+      year,
+      counterReactions,
+      counterComents,
+      image,
+      title,
+      avatar,
+      tags,
+      contentText,
+      nameP,
+      updated,
+    };
+
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(post),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((respuesta) => respuesta.json())
+      .then((body) => funcion(body))
+      .catch((error) => console.log(error));
+  };
+
   return (
     <>
       <div className="body d-flex alig-items-center justify-content-center">
@@ -46,7 +147,10 @@ const SignUp = () => {
           </div>
 
           <div className="">
-            <form className="w-100 d-flex flex-column justify-content-center">
+            <form
+              onSubmit={handleNewPost}
+              className="w-100 d-flex flex-column justify-content-center"
+            >
               <div className="d-flex p-3 align-items-center justify-content-center">
                 <div className="d-flex flex-column align-items-center justify-content-center">
                   <div className="bg-white card me-md-3">
@@ -63,6 +167,7 @@ const SignUp = () => {
                           className="w-100 inputPostTitle"
                           type="text"
                           placeholder="New post title here..."
+                          required
                         />
                       </h1>
                       <div className="d-flex mt-3">
@@ -111,9 +216,10 @@ const SignUp = () => {
                           <textarea
                             id="postTextContent"
                             className="form-control"
-                            placeholder="Leave a comment here"
+                            name="floatingTextarea"
+                            required
                           ></textarea>
-                          <label htmlFor="floatingTextarea2">
+                          <label htmlFor="floatingTextarea">
                             Write your post content here...
                           </label>
                         </div>
@@ -121,7 +227,7 @@ const SignUp = () => {
                     </div>
                   </div>
                   <div className="buttonsContainer d-flex align-items-center justify-content-start mt-3 w-100">
-                    <button type="button" className="btn btn-primary me-2">
+                    <button type="submit" className="btn btn-primary me-2">
                       Publish
                     </button>
                     <button type="button" className="btn bottomBUtton">

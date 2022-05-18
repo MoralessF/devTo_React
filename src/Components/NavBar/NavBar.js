@@ -29,6 +29,11 @@ const NavBar = () => {
             </div>
           </div>
           <div className="NavBut">
+            <Link className="test" to={`/NewPost`}>
+              <button type="button" className="btn btn-light">
+                New Post
+              </button>
+            </Link>
             <Link className="test" to={`/Login`}>
               <button type="button" className="btn btn-light">
                 Login
