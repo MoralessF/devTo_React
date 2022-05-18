@@ -10,13 +10,14 @@ const Main = () => {
     <div className="Main">
       <div className="Main-Container">
         <div className="Main-Content">
-        <div><NavBar/></div>
-        <div className='Home'>
-        <AsideLeft />
-          <AsideCenter/>
-          <AsideRight />
-        </div>
-         
+          <div>
+            <NavBar />
+          </div>
+          <div className="Home">
+            <AsideLeft />
+            <AsideCenter />
+            <AsideRight />
+          </div>
         </div>
       </div>
     </div>

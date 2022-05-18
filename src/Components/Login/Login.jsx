@@ -23,8 +23,58 @@ const loginInput = [
     nameInput: 'password',
   },
 ];
+// const [event, setEvent] = React.useState([]);
+//
 
 const Login = () => {
+  const [user, setUser] = React.useState({
+    email: null,
+    password: null,
+  });
+
+  const handleLogin = (e) => {
+    try {
+      e.preventDefault();
+      // como es un formulario controlado, hay que hacer primero una asignación a variables antes de actualizar el estado.
+      const email = e.target[0].value.toString();
+      const password = e.target[1].value.toString();
+
+      setUser({
+        email,
+        password,
+      });
+
+      console.log(user);
+      /* createToken(user, (body) => {
+        localStorage.setItem('userToken', Object.values(body)[1]);
+        if (Object.values(body)[1] === 'No existe el usuario') {
+          alert('Credenciales invalidas');
+        } else {
+          alert('Bienvenido');
+          // goHome();
+        }
+      }); */
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const createToken = (userlogin, funcion) => {
+    const url = `http://localhost:8080/api/v1/auth/login`;
+
+    fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      body: JSON.stringify(userlogin),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((respuesta) => respuesta.json())
+      .then((body) => funcion(body))
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="body d-flex alig-items-center justify-content-center">
       <main className="d-flex alig-items-center justify-content-center">
@@ -58,7 +108,7 @@ const Login = () => {
                   Have a password? Continue with your email address
                 </span>
               </div>
-              <form>
+              <form onSubmit={handleLogin}>
                 <div className="mb-3">
                   {loginInput.map((group) => {
                     return (
