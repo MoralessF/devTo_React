@@ -19,9 +19,54 @@ const SignUp = () => {
   const handleSignup = (e) => {
     try {
       e.preventDefault();
+      const firstName = e.target[0].value.toString();
+      const lastName = e.target[1].value.toString();
+      const email = e.target[2].value.toString();
+      const password = e.target[3].value.toString();
+      let avatar = '';
+      e.target[4].value.toString() !== ''
+        ? (avatar = e.target[4].value.toString())
+        : (avatar = 'https://cdn-icons-png.flaticon.com/512/147/147142.png');
+      const country = e.target[5].value.toString();
+      const day = e.target[6].value.toString();
+      const month = e.target[7].value.toString();
+      const year = e.target[8].value.toString();
+      const description = e.target[9].value.toString();
+
+      setNewUser({
+        firstName,
+        lastName,
+        email,
+        password,
+        avatar,
+        country,
+        day,
+        month,
+        year,
+        description,
+      });
+
+      createUser(newUser, (body) => {
+        console.log(body);
+      });
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const createUser = (user, funcion) => {
+    const url = `http://localhost:8080/api/v1/users`;
+
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((respuesta) => respuesta.json())
+      .then((body) => funcion(body))
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -97,18 +142,21 @@ const SignUp = () => {
                         type="number"
                         className="form-control me-3 inputDate"
                         placeholder="dd"
+                        required
                       />
                       <input
                         name="birthday-month"
                         type="number"
                         className="form-control me-3 inputDate"
                         placeholder="mm"
+                        required
                       />
                       <input
                         name="birthday-year"
                         type="number"
                         className="form-control inputDate"
                         placeholder="yyyy"
+                        required
                       />
                     </div>
 

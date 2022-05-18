@@ -21,11 +21,8 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/SignUp" element={<SignUp />} />
-<<<<<<< HEAD
         <Route path="/BigPosts/:id" element={<BigPosts />} />
-=======
         <Route path="/NewPost" element={<NewPost />} />
->>>>>>> 3ab7fc02ca2503d9686fc105aa282e3eb858e9cb
       </Routes>
     </>
   );
